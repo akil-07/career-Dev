@@ -1,0 +1,9 @@
+src/components/ui/background-paths.tsx(3,24): error TS2307: Cannot find module 'framer-motion' or its corresponding type declarations.
+src/components/ui/background-paths.tsx(110,29): error TS2322: Type '{ children: Element[]; variant: string; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+src/components/ui/button.tsx(2,22): error TS2307: Cannot find module '@radix-ui/react-slot' or its corresponding type declarations.
+src/components/ui/button.tsx(3,40): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+src/components/ui/button.tsx(43,17): error TS2339: Property 'variant' does not exist on type 'ButtonProps'.
+src/components/ui/button.tsx(43,26): error TS2339: Property 'size' does not exist on type 'ButtonProps'.
+src/lib/utils.ts(1,39): error TS2307: Cannot find module 'clsx' or its corresponding type declarations.
+src/lib/utils.ts(2,25): error TS2307: Cannot find module 'tailwind-merge' or its corresponding type declarations.
