@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, FileText, Mail, ExternalLink, Maximize2, Minimize2 } from "lucide-react";
+import { Github, Linkedin, FileText, ExternalLink, Maximize2, Minimize2 } from "lucide-react";
 
 export function ContactSection() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
@@ -109,19 +109,6 @@ export function ContactSection() {
             ))}
           </div>
 
-          {/* Bottom Contact Section */}
-          <motion.div
-             initial={{ opacity: 0, y: 30 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.4 }}
-             className="mt-20 text-center"
-          >
-            <a href="mailto:hello@example.com" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-bold hover:scale-105 active:scale-95 transition-transform shadow-xl shadow-neutral-900/20 dark:shadow-white/20">
-              <Mail className="w-5 h-5" />
-              Send me an Email
-            </a>
-          </motion.div>
         </div>
       </section>
 
