@@ -7,6 +7,10 @@ import { SkillsSection } from "./components/SkillsSection"
 import { SplineInteractiveSection } from "./components/SplineInteractiveSection"
 import { FuturePlansSection } from "./components/FuturePlansSection"
 import { ClassPicturesSection } from "./components/ClassPicturesSection"
+import { PowerWeaknessSection } from "./components/PowerWeaknessSection"
+import { CompletedTasksSection } from "./components/CompletedTasksSection"
+import { ContactSection } from "./components/ContactSection"
+import { LearningsSection } from "./components/LearningsSection"
 import { CursorGlow } from "./components/CursorGlow"
 
 function App() {
@@ -19,8 +23,12 @@ function App() {
       <CertificationsSection />
       <SplineInteractiveSection />
       <FuturePlansSection />
+      <PowerWeaknessSection />
       <ClassPicturesSection />
+      <CompletedTasksSection />
+      <LearningsSection />
       <SkillsSection />
+      <ContactSection />
       <CursorGlow />
     </main>
   )
