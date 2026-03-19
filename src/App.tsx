@@ -12,6 +12,7 @@ import { CompletedTasksSection } from "./components/CompletedTasksSection"
 import { ContactSection } from "./components/ContactSection"
 import { LearningsSection } from "./components/LearningsSection"
 import { CursorGlow } from "./components/CursorGlow"
+import { FullscreenToggle } from "./components/FullscreenToggle"
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <SkillsSection />
       <ContactSection />
       <CursorGlow />
+      <FullscreenToggle />
     </main>
   )
 }

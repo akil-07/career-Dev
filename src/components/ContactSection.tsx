@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, FileText, Mail, ExternalLink } from "lucide-react";
+import { Github, Linkedin, FileText, Mail, ExternalLink, Maximize2, Minimize2 } from "lucide-react";
 
 export function ContactSection() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const overlayRef = useRef<HTMLDivElement>(null);
+
+  const toggleFullscreen = useCallback(() => {
+    if (!document.fullscreenElement) {
+      overlayRef.current?.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  }, []);
 
   const contacts = [
     {
@@ -131,6 +143,7 @@ export function ContactSection() {
             />
             {/* The expanding image mapping to the layout Id */}
             <motion.div 
+              ref={overlayRef}
               layoutId={`contact-img-${hoveredIdx}`}
               className="relative z-10 w-[90vw] h-[90vh] md:w-[70vw] md:h-[80vh] rounded-3xl overflow-hidden shadow-2xl shadow-indigo-500/20 bg-neutral-900 flex items-center justify-center border border-white/10"
             >
@@ -139,10 +152,19 @@ export function ContactSection() {
                 alt={`${contacts[hoveredIdx].name} preview`}
                 className="w-full h-full object-contain"
                 onError={(e) => {
-                  /* Fallback if user hasn't uploaded images yet or wrong name */
-                  (e.target as HTMLImageElement).src = `https://placehold.co/800x600/171717/white?text=${contacts[hoveredIdx].name}+Image+Missing`;
+                  (e.target as HTMLImageElement).src = `https://placehold.co/800x600/171717/white?text=${contacts[hoveredIdx!].name}+Image+Missing`;
                 }}
               />
+              {/* Fullscreen Button */}
+              <button
+                onClick={toggleFullscreen}
+                className="pointer-events-auto absolute top-4 right-4 w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 active:scale-95"
+                title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+              >
+                {isFullscreen 
+                  ? <Minimize2 className="w-5 h-5" /> 
+                  : <Maximize2 className="w-5 h-5" />}
+              </button>
             </motion.div>
           </motion.div>
         )}
